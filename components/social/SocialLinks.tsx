@@ -36,21 +36,17 @@ export function SocialLinks({
               whileHover={{ y: -2 }}
               transition={{ duration: 0.2 }}
             >
-              <span
+              <Image
+                src={link.icon}
+                alt=""
+                width={iconSize}
+                height={iconSize}
                 className={cn(
-                  "flex shrink-0 items-center justify-center brightness-0 invert",
-                  iconClass
+                  "shrink-0 object-contain opacity-80",
+                  iconClass,
+                  link.id !== "github" && "brightness-0 invert"
                 )}
-              >
-                <Image
-                  src={link.icon}
-                  alt=""
-                  width={iconSize}
-                  height={iconSize}
-                  unoptimized
-                  className="h-full w-full shrink-0 object-contain"
-                />
-              </span>
+              />
             </motion.a>
           </li>
         ))}
