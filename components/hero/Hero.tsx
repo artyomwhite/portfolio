@@ -10,11 +10,11 @@ export function Hero() {
     <section
       id="hero"
       aria-labelledby="hero-heading"
-      className="relative z-10 pt-12 pb-6 md:pt-16 md:pb-8 lg:pt-20 lg:pb-10"
+      className="relative z-10 pt-8 pb-6 md:pt-12 md:pb-8 lg:pt-16 lg:pb-12"
     >
-      <div className="mx-auto grid w-full min-w-0 max-w-6xl grid-cols-1 items-center gap-16 px-6 md:grid-cols-2 md:gap-12 md:px-8 lg:gap-20">
-        <FadeIn className="flex min-w-0 flex-col gap-8">
-          <div className="flex min-w-0 flex-col gap-3">
+      <div className="mx-auto grid w-full min-w-0 max-w-6xl grid-cols-1 items-center gap-12 px-6 md:grid-cols-2 md:gap-16 md:px-8">
+        <FadeIn className="flex min-w-0 flex-col gap-6">
+          <div className="flex min-w-0 flex-col gap-2">
             <h1
               id="hero-heading"
               className="text-balance text-4xl font-semibold tracking-tight text-graphite-50 md:text-5xl lg:text-[3.5rem] lg:leading-[1.1]"
@@ -39,7 +39,7 @@ export function Hero() {
             {siteConfig.bio}
           </p>
 
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-4">
             <Button href={`/#${SECTION_IDS.projects}`} variant="primary">
               View Projects
             </Button>
@@ -52,7 +52,7 @@ export function Hero() {
         </FadeIn>
 
         <FadeIn delay={0.15} className="flex min-w-0 justify-center md:justify-end">
-          <div className="glass glass-hover glass-portrait hover-lift relative w-full max-w-xs overflow-hidden p-1.5 shadow-xl shadow-black/30 md:max-w-sm">
+          <div className="glass glass-hover glass-portrait hover-lift relative w-full max-w-xs overflow-hidden p-2 shadow-xl shadow-black/30 md:max-w-sm">
             <div className="relative aspect-[959/1044] w-full overflow-hidden rounded-[16px]">
               <Image
                 src={siteConfig.images.profile}

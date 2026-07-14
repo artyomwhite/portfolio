@@ -12,7 +12,7 @@ export function About() {
       <SectionHeader id="about" title={title} subtitle={subtitle} />
 
       <FadeIn>
-        <p className="mb-8 max-w-3xl text-pretty text-base leading-7 text-graphite-300 md:mb-9 md:text-lg md:leading-8">
+        <p className="mb-8 max-w-3xl text-pretty text-base leading-7 text-graphite-300 md:mb-12 md:text-lg md:leading-8">
           {ABOUT_CONTENT.intro}
         </p>
       </FadeIn>

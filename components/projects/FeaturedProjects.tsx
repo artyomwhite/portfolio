@@ -11,7 +11,7 @@ export function FeaturedProjects() {
     <Section id="projects">
       <SectionHeader id="projects" title={title} subtitle={subtitle} />
 
-      <div className="flex flex-col gap-8 md:gap-10">
+      <div className="flex flex-col gap-8 md:gap-12">
         {featured.map((project, index) => (
           <ProjectCard key={project.id} project={project} index={index} />
         ))}

@@ -1,118 +1,112 @@
-import type { ReactNode } from "react";
+import type { ComponentType } from "react";
 import { cn } from "@/lib/utils";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiNestjs,
+  SiExpress,
+  SiFastapi,
+  SiDjango,
+  SiGraphql,
+  SiClaude,
+  SiPytorch,
+  SiTelegram,
+  SiPostgresql,
+  SiMongodb,
+  SiPrisma,
+  SiRedis,
+  SiDocker,
+  SiGithubactions,
+  SiAuth0,
+  SiPython,
+  SiJavascript,
+  SiTypescript,
+  SiSqlalchemy,
+  SiSocketdotio,
+  SiJupyter,
+} from "react-icons/si";
 
 interface TechIconProps {
   name: string;
   className?: string;
 }
 
-const iconPaths: Record<string, ReactNode> = {
-  Python: (
-    <path d="M9.5 2C7.5 2 6.5 3 6.5 4.5V6h4v.5H4.5C2.5 6.5 1.5 7.8 1.5 9.5v3c0 1.7 1 3 3 3H6v-2.5c0-1.4 1.2-2.5 2.5-2.5h5c1.1 0 2-.9 2-2V4.5C15.5 3 14.5 2 12.5 2h-3zm-1 1.2a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8zM10 10.5c-1.4 0-2.5 1.1-2.5 2.5V15.5H4.5c-2 0-3 1-3 2.5v3c0 1.5 1 2.5 3 2.5h3c2 0 3-1 3-2.5V19h-4v-.5h6.5c2 0 3-1.3 3-3v-3c0-1.7-1-3-3-3H10zm1.5 8.3a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8z" />
-  ),
-  JavaScript: (
-    <path d="M3 3h14v14H3V3zm7.2 10.8c0 1.4-.8 2.1-2.2 2.1-1.1 0-1.8-.6-2.1-1.3l1.1-.7c.2.4.4.7.9.7.5 0 .8-.2.8-.9V8.5h1.5v5.3zm3.4 2.1c-1.3 0-2.1-.6-2.5-1.5l1.1-.7c.3.5.6.8 1.2.8.5 0 .8-.2.8-.6 0-.4-.3-.6-1-.8l-.4-.2c-1-.4-1.7-1-1.7-2.1 0-1.1.8-1.9 2.1-1.9 1 0 1.6.3 2.1 1.2l-1.1.7c-.2-.4-.5-.6-.9-.6-.4 0-.6.2-.6.5 0 .3.2.5.8.7l.4.2c1.2.5 1.9 1.1 1.9 2.2 0 1.3-1 2.1-2.2 2.1z" />
-  ),
-  TypeScript: (
-    <>
-      <path d="M3 3h14v14H3V3z" fill="none" stroke="currentColor" strokeWidth="1.2" />
-      <path d="M8.2 9.2h3.6V8H6.8v1.2h1.4v5.3h1.4V9.2zm5.2 5.5c-.5.3-1.2.5-1.9.5-1.8 0-2.9-1-2.9-2.6 0-1.6 1.1-2.7 2.9-2.7.7 0 1.3.1 1.8.4l-.4 1.1c-.4-.2-.8-.3-1.3-.3-1 0-1.6.6-1.6 1.5s.6 1.5 1.6 1.5c.5 0 1-.1 1.4-.4l.4 1z" />
-    </>
-  ),
-  React: (
-    <>
-      <circle cx="10" cy="10" r="1.6" />
-      <ellipse cx="10" cy="10" rx="7.5" ry="3" fill="none" stroke="currentColor" strokeWidth="1.2" />
-      <ellipse cx="10" cy="10" rx="7.5" ry="3" fill="none" stroke="currentColor" strokeWidth="1.2" transform="rotate(60 10 10)" />
-      <ellipse cx="10" cy="10" rx="7.5" ry="3" fill="none" stroke="currentColor" strokeWidth="1.2" transform="rotate(120 10 10)" />
-    </>
-  ),
-  "Next.js": (
-    <>
-      <circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" strokeWidth="1.2" />
-      <path d="M8 6.5h1.4l3.8 5.6V6.5H14.5v7h-1.4L9.3 7.9v5.6H8V6.5z" />
-    </>
-  ),
-  "Tailwind CSS": (
-    <path d="M10 5.5c-2.2 0-3.6 1.1-4.2 3.3.8-1.1 1.8-1.5 2.9-1.2.6.2 1.1.7 1.6 1.3.8 1 1.8 2.1 3.9 2.1 2.2 0 3.6-1.1 4.2-3.3-.8 1.1-1.8 1.5-2.9 1.2-.6-.2-1.1-.7-1.6-1.3-.8-1-1.8-2.1-3.9-2.1zm-4.2 5.5c-2.2 0-3.6 1.1-4.2 3.3.8-1.1 1.8-1.5 2.9-1.2.6.2 1.1.7 1.6 1.3.8 1 1.8 2.1 3.9 2.1 2.2 0 3.6-1.1 4.2-3.3-.8 1.1-1.8 1.5-2.9 1.2-.6-.2-1.1-.7-1.6-1.3-.8-1-1.8-2.1-3.9-2.1z" />
-  ),
-  "Node.js": (
-    <path d="M10 2.5 3.5 6.2v7.6L10 17.5l6.5-3.7V6.2L10 2.5zm0 1.7 4.8 2.7v5.2L10 15.8 5.2 13.1V7.9L10 4.2zm-1.2 3.1v5.4l1.2.7 3.2-1.8v-1.3l-2 1.1V8.6l-2.4-1.3z" />
-  ),
-  NestJS: (
-    <path d="M10 2.8c-1.8 1.4-3.8 2.2-5.8 2.4v5.2c0 3.4 2.3 6.5 5.8 7.6 3.5-1.1 5.8-4.2 5.8-7.6V5.2c-2-.2-4-1-5.8-2.4zm0 1.8c1.3.9 2.8 1.5 4.3 1.8v4.8c0 2.5-1.6 4.8-4.3 5.7-2.7-.9-4.3-3.2-4.3-5.7V6.4c1.5-.3 3-.9 4.3-1.8z" />
-  ),
-  "Express.js": (
-    <path d="M3.5 9.2h2.8c.9 0 1.5.5 1.5 1.3 0 .7-.4 1.2-1.1 1.3l1.4 2.2H6.6l-1.2-2H5v2H3.5V9.2zm1.5 1.1v1.3h1c.4 0 .6-.2.6-.5s-.2-.6-.6-.6h-1zm5.2-.1c1.3 0 2.2.9 2.2 2.3S11.5 15 10.2 15 8 14.1 8 12.7s.9-2.5 2.2-2.5zm0 1.1c-.6 0-1 .5-1 1.2s.4 1.2 1 1.2 1-.5 1-1.2-.4-1.2-1-1.2zm4.3 3.7-1.5-4.7h1.6l.8 2.9.8-2.9h1.5l-1.5 4.7h-1.7z" />
-  ),
-  FastAPI: (
-    <>
-      <circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" strokeWidth="1.2" />
-      <path d="M7 10.5 9.5 13 13.5 7" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-    </>
-  ),
-  Django: (
-    <path d="M8.2 4.5h2.2v8.2c0 2.4-1.2 3.5-3.4 3.5-.7 0-1.5-.1-2-.4l.4-1.7c.3.1.8.3 1.3.3 1 0 1.5-.5 1.5-1.7V4.5zm4.3 3.2h2.1v8.8h-2.1V7.7zm1-2.8a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z" />
-  ),
-  GraphQL: (
-    <path d="M10 2.8 4.2 6.2v7.6L10 17.2l5.8-3.4V6.2L10 2.8zm0 1.6 4.2 2.4v4.8L10 14.8 5.8 12.4V7.6L10 5.2zm-2.8 3.2 2.8-1.6 2.8 1.6v3.2l-2.8 1.6-2.8-1.6V8.4z" />
-  ),
-  PostgreSQL: (
-    <path d="M10.2 2.5c-3.2 0-5.2 1.5-5.2 3.4v8.2c0 .8.5 1.4 1.4 1.7-.3.8-.2 1.7.4 2.3.7.7 1.8.8 2.7.4.3 1.1 1.2 1.9 2.5 1.9 2.1 0 3.2-1.5 3.2-3.8V9.2c0-1.2-.5-1.8-1.5-1.8H9.8v1.4h3.2c.3 0 .4.1.4.4v5.8c0 1.4-.5 2.3-1.7 2.3-.9 0-1.5-.6-1.5-1.6V5.9c0-1.1 1.3-2 3-2s3 .9 3 2v2.4h1.5V5.9c0-1.9-2-3.4-5-3.4zm-3.5 8.2H5.8c-.3 0-.5-.2-.5-.5V5.9c0-.8.8-1.6 2.2-2v6.8c0 .3-.2.5-.5.5h-.3z" />
-  ),
-  MongoDB: (
-    <path d="M10.4 2.5c.2 1.4.8 2.4 1.4 3.4.8 1.3 1.5 2.5 1.5 4.3 0 2.8-1.4 4.5-3.3 5.5-.1.4-.2 1.1-.2 1.1s-.2-.6-.3-1.1C7.6 14.7 6.2 13 6.2 10.2c0-1.8.7-3 1.5-4.3.6-1 1.2-2 1.4-3.4.2.1.9.1 1.3 0z" />
-  ),
-  "Prisma ORM": (
-    <path d="M12.8 14.8 8.2 3.8c-.2-.5-.7-.8-1.2-.7-.5.1-.8.5-.8 1L5.5 15c0 .5.3.9.8 1.1l4.2 1.5c.5.2 1.1 0 1.3-.5l1.3-2c.2-.4.1-.9-.3-1.3zM8.1 5.4l3.5 8.4-3.2 1.1L8.1 5.4z" />
-  ),
-  Redis: (
-    <path d="M3.5 6.2 10 3.5l6.5 2.7v.8L10 9.8 3.5 7v-.8zm0 3.4L10 12.4l6.5-2.8v1.2L10 14l-6.5-3.2V9.6zm0 3.6L10 16.5l6.5-3.3v1.1L10 17.5l-6.5-3.2v-1.1z" />
-  ),
-  "CI/CD": (
-    <path d="M10 3.5a4 4 0 0 1 3.5 6l2.2 2.2-1.2 1.2-2.2-2.2A4 4 0 1 1 10 3.5zm0 1.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm-3.5 7.2 2.2 2.2A4 4 0 1 0 10 16.5a4 4 0 0 0-1.3-.2l-2.2 2.2-1.2-1.2 2.2-2.2a4 4 0 0 1-1-2.4zM10 13a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5z" />
-  ),
+// Official brand colors for each technology
+export const brandColors: Record<string, string> = {
+  "React": "#61DAFB",
+  "Next.js": "#FFFFFF",
+  "Tailwind CSS": "#06B6D4",
+  "Node.js": "#339933",
+  "NestJS": "#E0234E",
+  "Express.js": "#CCCCCC",
+  "FastAPI": "#009688",
+  "Django": "#44B78B",
+  "GraphQL": "#E10098",
+  "LLM Integration": "#D97706",
+  "Machine Learning": "#EE4C2C",
+  "Telegram Bot API": "#26A5E4",
+  "PostgreSQL": "#4169E1",
+  "MongoDB": "#47A248",
+  "Prisma ORM": "#5A67D8",
+  "Redis": "#DC382D",
+  "Docker": "#2496ED",
+  "AWS": "#FF9900",
+  "CI/CD": "#2088FF",
+  "Authentication": "#EB5424",
+  "Python": "#3776AB",
+  "JavaScript": "#F7DF1E",
+  "TypeScript": "#3178C6",
+  "SQLAlchemy": "#D7191C",
+  "Socket.IO": "#FFFFFF",
+  "Data Science": "#F37626",
+  "REST API": "#6BA539",
+};
 
+type SiIcon = ComponentType<{ className?: string; style?: React.CSSProperties }>;
+
+const siIconMap: Record<string, SiIcon> = {
+  "React": SiReact,
+  "Next.js": SiNextdotjs,
+  "Tailwind CSS": SiTailwindcss,
+  "Node.js": SiNodedotjs,
+  "NestJS": SiNestjs,
+  "Express.js": SiExpress,
+  "FastAPI": SiFastapi,
+  "Django": SiDjango,
+  "GraphQL": SiGraphql,
+  "LLM Integration": SiClaude,
+  "Machine Learning": SiPytorch,
+  "Telegram Bot API": SiTelegram,
+  "PostgreSQL": SiPostgresql,
+  "MongoDB": SiMongodb,
+  "Prisma ORM": SiPrisma,
+  "Redis": SiRedis,
+  "Docker": SiDocker,
+  "CI/CD": SiGithubactions,
+  "Authentication": SiAuth0,
+  "Python": SiPython,
+  "JavaScript": SiJavascript,
+  "TypeScript": SiTypescript,
+  "SQLAlchemy": SiSqlalchemy,
+  "Socket.IO": SiSocketdotio,
+  "Data Science": SiJupyter,
+};
+
+// Custom inline SVG paths for tech without a matching Si icon
+const customSvgPaths: Record<string, React.ReactNode> = {
+  "AWS": (
+    <path d="M5.8 12.2c1.8 1.3 4.4 2 6.7 2 1.4 0 2.9-.3 4-.8.3-.1.5.1.2.3-1.4 1.2-3.8 2-6.1 2-2.9 0-5.5-.9-7.3-2.3-.3-.2-.1-.5.2-.4.8.3 1.6.7 2.3 1.2zm11.4-1c.3-.4.1-.9-.4-1.1-.4-.1-.8 0-1.1.3l-.1.1c-1.8 1.2-4.6 1.6-6.8 1-.3-.1-.5.1-.4.3.8 2.4 3.3 1.8 7.1.8.5-.1.9-.3 1.7-.4zm-8.5-6.5.9 2.7h.1l1-2.7h1.5L9.8 11H8.4L6.8 7.4h-.1L5.1 11H3.7l-1.8-6.3h1.6l.9 2.8h.1l1-2.8h1.3zm7.2 4.1c0 .5-.3.7-.9.7h-.8V6.7h.9c.5 0 .8.2.8.7v2.4zm1.5-2.5c0-1.2-.9-1.9-2.4-1.9H13v6.3h1.4V9.8h.2l1.4 2.2h1.7l-1.6-2.3c.9-.3 1.3-1 1.3-1.9z" />
+  ),
+  "REST API": (
+    <path d="M3.5 6h3v8h-3V6zm5 0h3v8h-3V6zm5 0h3v8h-3V6z" />
+  ),
   "AI Systems": (
     <path d="M10 3.5 4.5 6.5v7L10 16.5l5.5-3v-7L10 3.5zm0 1.7 3.8 2.1v4.4L10 14.8 6.2 12.7V8.3L10 6.2zM9.2 8.5h1.6v1.6H9.2V8.5zm0 2.8h1.6v1.6H9.2v-1.6z" />
   ),
-  "LLM Integration": (
-    <path d="M5 5h10v2H5V5zm0 4h10v2H5V9zm0 4h7v2H5v-2z" />
-  ),
-  "Machine Learning": (
-    <path d="M4 14.5 7.5 6h2l3.5 8.5h-2.1l-.7-1.8H6.8l-.7 1.8H4zm3.4-3.4h2.2L8.5 8.2 7.4 11.1zM14 6h2v8.5h-2V6z" />
-  ),
-  "Data Science": (
-    <path d="M4 14V9h2.2v5H4zm4.9 0V6h2.2v8H8.9zm4.9 0v-3.5H16V14h-2.2z" />
-  ),
-  "Telegram Bot API": (
-    <path d="M16.5 4.2 3.8 9.1c-.9.4-.9 1.1-.2 1.4l3.3 1 1.3 3.9c.2.5.6.6 1 .3l1.8-1.5 3.4 2.5c.6.4 1.1.2 1.2-.6l2.2-10.4c.2-.9-.3-1.3-1.1-1zM8.8 11.8l6.2-3.9c.3-.2.6 0 .3.2l-5 4.5-.2 2.3-1.3-3.1z" />
-  ),
-  "Socket.IO": (
-    <>
-      <circle
-        cx="10"
-        cy="10"
-        r="7.5"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.2"
-      />
-      <path d="M11.2 5.5 7.5 10.8h2.3L8.8 14.5 12.5 9.2h-2.3L11.2 5.5z" />
-    </>
-  ),
-  Docker: (
-    <path d="M18 9.4c-.4-.3-1.4-.4-2.1-.2-.1-.8-.5-1.5-1.2-2l-.4.4c.6.4.9 1 1 1.7-1.1-.1-2.1.2-2.8.9H4.2c-.4 1.4.1 3 1.3 3.9 1 .8 2.4 1 3.6.7.9 1.1 2.4 1.6 3.8 1.3 1-.2 1.8-.9 2.3-1.7.8.2 1.7.1 2.4-.4.8-.5 1.2-1.4 1.2-2.3.5-.1 1-.4 1.2-.9.3-.5.2-1-.2-1.4zM6 10.2h1.4v1.4H6v-1.4zm2 0h1.4v1.4H8v-1.4zm2 0h1.4v1.4H10v-1.4zm2 0h1.4v1.4H12v-1.4zM8 8.4h1.4V9.8H8V8.4zm2 0h1.4V9.8H10V8.4zm2 0h1.4V9.8H12V8.4zm-2-1.8h1.4v1.4H10V6.6z" />
-  ),
-
-  AWS: (
-    <path d="M5.8 12.2c1.8 1.3 4.4 2 6.7 2 1.4 0 2.9-.3 4-.8.3-.1.5.1.2.3-1.4 1.2-3.8 2-6.1 2-2.9 0-5.5-.9-7.3-2.3-.3-.2-.1-.5.2-.4.8.3 1.6.7 2.3 1.2zm11.4-1c.3-.4.1-.9-.4-1.1-.4-.1-.8 0-1.1.3l-.1.1c-1.8 1.2-4.6 1.6-6.8 1-.3-.1-.5.1-.4.3.8 2.4 3.3 1.8 7.1.8.5-.1.9-.3 1.7-.4zm-8.5-6.5.9 2.7h.1l1-2.7h1.5L9.8 11H8.4L6.8 7.4h-.1L5.1 11H3.7l-1.8-6.3h1.6l.9 2.8h.1l1-2.8h1.3zm7.2 4.1c0 .5-.3.7-.9.7h-.8V6.7h.9c.5 0 .8.2.8.7v2.4zm1.5-2.5c0-1.2-.9-1.9-2.4-1.9H13v6.3h1.4V9.8h.2l1.4 2.2h1.7l-1.6-2.3c.9-.3 1.3-1 1.3-1.9z" />
-  ),
   "Cloud Deployment": (
     <path d="M7.5 13.5h7c1.7 0 3-1.2 3-2.8 0-1.4-1-2.5-2.4-2.8-.3-1.8-1.8-3.1-3.6-3.1-1.4 0-2.6.8-3.2 1.9-.3-.1-.6-.2-1-.2-1.5 0-2.8 1.2-2.8 2.8 0 1.6 1.3 4.2 3 4.2z" />
-  ),
-  Authentication: (
-    <path d="M10 2.8 4.5 5v4.2c0 3.5 2.4 6.7 5.5 7.5 3.1-.8 5.5-4 5.5-7.5V5L10 2.8zm0 1.7 4 1.6v3.1c0 2.6-1.7 5-4 5.8-2.3-.8-4-3.2-4-5.8V6.1l4-1.6zm-1.2 3.2h2.4v2.1l1.2 1.2-1.2 1.2H8.8l-1.2-1.2 1.2-1.2V7.7z" />
   ),
   "SaaS Architecture": (
     <path d="M4 5h5v4H4V5zm7 0h5v4h-5V5zM4 11h5v4H4v-4zm7 0h5v4h-5v-4z" />
@@ -120,17 +114,27 @@ const iconPaths: Record<string, ReactNode> = {
 };
 
 export function TechIcon({ name, className }: TechIconProps) {
-  const paths = iconPaths[name];
-  if (!paths) return null;
+  const IconComponent = siIconMap[name];
+
+  if (IconComponent) {
+    return (
+      <IconComponent
+        className={cn("h-4 w-4 shrink-0", className)}
+      />
+    );
+  }
+
+  const customPath = customSvgPaths[name];
+  if (!customPath) return null;
 
   return (
     <svg
       viewBox="0 0 20 20"
       fill="currentColor"
       aria-hidden
-      className={cn("h-3.5 w-3.5 shrink-0", className)}
+      className={cn("h-4 w-4 shrink-0", className)}
     >
-      {paths}
+      {customPath}
     </svg>
   );
 }

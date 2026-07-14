@@ -38,7 +38,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             />
           </div>
 
-          <div className="flex min-w-0 flex-col gap-4 md:gap-5">
+          <div className="flex min-w-0 flex-col gap-4 md:gap-6">
             <span className="font-mono text-sm tracking-wider text-accent/70">
               {number}
             </span>
@@ -47,7 +47,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               <h3 className="text-balance text-xl font-medium tracking-tight text-graphite-50 md:text-2xl">
                 {project.title}
               </h3>
-              <p className="mt-1.5 text-sm font-medium text-graphite-300">
+              <p className="mt-2 text-sm font-medium text-graphite-300">
                 {project.role}
               </p>
             </div>
@@ -56,7 +56,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               {project.description}
             </p>
 
-            <div className="flex min-w-0 flex-wrap gap-1.5">
+            <div className="flex min-w-0 flex-wrap gap-2">
               {project.techStack.map((tech, i) => (
                 <Badge key={`${tech}-${i}`}>
                   <TechIcon name={tech} className="text-accent/80" />
