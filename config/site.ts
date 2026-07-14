@@ -54,10 +54,10 @@ export const siteConfig = {
       icon: "/icons/upwork.svg",
     },
     {
-      id: "fiverr",
-      name: "Fiverr",
-      href: "https://www.fiverr.com/artem_white",
-      icon: "/icons/fiverr.svg",
+      id: "gmail",
+      name: "Gmail",
+      href: "mailto:whitee.artem@gmail.com",
+      icon: "/icons/gmail.svg",
     },
   ] satisfies SocialLink[],
 } as const;
